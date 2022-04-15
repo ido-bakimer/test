@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="fonts/fa-solid-900.ttf">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Meme Lord</title>
+</head>
+
+<body onload="onInit()">
+    <div class="neon-Header">
+        <p>Meme-Lord</p>
+    </div>
+<header class="main-header main-layout">
+   <neon-Box href="#" onclick="onShowGallery()">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    Gallery
+    </neon-Box>
+</header>
+    <main class="main-content main-layout flex">
+        <div class="editor" onclick="onScreenClicked()">
+            <div class="canvas-container">
+                <canvas id="my-canvas" onmousemove="onCanvasMouseMove(event)" onmousedown="onCanvasMouseDown(event)"
+                    onmouseup="onCanvasMouseUp(event)" onclick="onCanvasClick(event)"
+                    ontouchstart="handleTouchStart(event)" ontouchmove="handleTouchMove(event)"
+                    ontouchend="handleTouchEnd(event)"></canvas>
+            </div>
+            <div class="control-bar">
+                <input class="input-line" type="text" placeholder="Type your text here" name="inputText"
+                    oninput="onInputText()" onclick="event.stopPropagation()">
+                <div>
+                    <div>
+                        <neon-btn href="#" onclick="onLineAdd()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#x2b
+                        </neon-btn>
+                        <neon-btn href="#" onclick="onLineDel()">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                             &#xf1f8
+                        </neon-btn>
+                        <neon-btn href="#" onclick="onLineSwitch()">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#xf0ec
+                        </neon-btn>
+                    </div>
+                    <div>
+                        <neon-btn href="#" onclick="onChangeAlignment('left')">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#xf036
+                        </neon-btn>
+                        <neon-btn href="#" onclick="onChangeAlignment('center')">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                             &#xf039
+                        </neon-btn>
+                        <neon-btn href="#" onclick="onChangeAlignment('right')">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#xf038
+                        </neon-btn>
+                    </div>
+                    <div>
+                        <neon-btn  class="font-btn" href="#" onclick="onChangeFontSize(-5)">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            &#xf031+
+                        </neon-btn>
+                        <neon-btn  class="font-btn" href="#" onclick="onChangeFontSize(5)">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            &#xf031-
+                        </neon-btn>
+                        <neon-btn  href="#" onclick="onDownloadCanvas(this)" download="">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        &#xf019
+                        </neon-btn>
+                    </div>
+                    <div>
+                        <input class="btn-font btn-reg" onfocus="this.value=''" onchange="this.blur();"
+                            oninput="onChangedFont(event)" onclick="event.stopPropagation()" list="Fonts" name="font"
+                            placeholder="IMPACT">
+                        <datalist id="Fonts">
+                            <option value="IMPACT">
+                            <option value="ARIAL">
+                            <option value="COMIC">
+                        </datalist>
+                        <input type="color" name=stroke class="input-color btn-reg" oninput="onChangedStroke()">
+                        <input type="color" name=fill class="input-color btn-reg" oninput="onChangedFill()">
+                    </div>
+
+                </div>
+                
+                <div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="search-img flex space-between">
+            <div class="search-img-input-container">
+                <input class="search-img-input" type="text" name="search-img" oninput="onSetFilter()"
+                    placeholder="Search">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="keywords flex space-around"></div>
+        </div>
+        <div class="img-gallery"></div>
+        <div class="meme-list">
+        </div>
+    </main>
+    <footer class="main-footer main-header main-layout">
+<a  href="#">coffeerigths 2022</a>
+    </footer>
+    <script src="js/storage-service.js"></script>
+    <script src="js/mem-service.js"></script>
+    <script src="js/controller.js"></script>
+</body>
+
+</html>
